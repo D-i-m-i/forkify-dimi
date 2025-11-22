@@ -2,12 +2,25 @@ import icons from 'url:../../img/icons.svg';
 
 export default class View {
   _data;
-  render(data) {
+
+  /**
+   * Render the received object to the DOM
+   * @param {Object | Object[]} data The data to be rendered (e.g. recipe)
+   * @param {boolean} [render=true] If false, create markup string instead of rendering to the DOM
+   * @returns {undefined | string} A markup string is returned if render=false
+   * @this {Object} View instance
+   * @author Demetris Tzionis
+   * @todo Finish implementation
+   */
+  render(data, render = true) {
     if (!data || (Array.isArray(data) && data.length === 0))
       return this.renderError();
 
     this._data = data;
     const markup = this._generateMarkup();
+
+    if (!render) return markup;
+
     this._clear();
     this._parentElement.insertAdjacentHTML('afterbegin', markup);
   }
@@ -24,13 +37,13 @@ export default class View {
     const newElements = Array.from(newDOM.querySelectorAll('*'));
     // console.log(newElements);
     const curElements = Array.from(this._parentElement.querySelectorAll('*'));
-    console.log('CUR', curElements);
-    console.log('NEW', newElements);
+    // console.log('CUR', curElements);
+    // console.log('NEW', newElements);
 
     // Looping over both arrays at the same time
     newElements.forEach((newEl, i) => {
       const curEl = curElements[i];
-      console.log(curEl, newEl.isEqualNode(curEl));
+      // console.log(curEl, newEl.isEqualNode(curEl));
 
       // Updates changed TEXT
       if (

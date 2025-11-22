@@ -46,7 +46,7 @@ class PaginationView extends View {
     );
     // console.log(this._data.results.length);
     // console.log(this._data.resultsPerPage);
-    console.log(numPages);
+    // console.log(numPages);
     // SCENARIOS:
     // Page 1, and there are other pages
     if (curPage === 1 && numPages > 1) {
