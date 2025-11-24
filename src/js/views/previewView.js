@@ -34,7 +34,4 @@ class PreviewView extends View {
   }
 }
 
-// console.log('test');
-// console.log('test1');
-
 export default new PreviewView();
