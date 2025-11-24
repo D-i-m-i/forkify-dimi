@@ -4,18 +4,18 @@
   "description": "Recipe application",
   "default": "index.html",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "npx eslint $1"
+    "start": "parcel index.html",
+    "build": "PARCEL_OPTIMIZE=false parcel build index.html --dist-dir ./dist"
   },
   "author": "dimi",
   "license": "ISC",
   "devDependencies": {
-    "vite": "^7.2.4"
+    "@parcel/transformer-sass": "^2.16.1"
   },
   "dependencies": {
     "core-js": "^3.46.0",
     "fracty": "^1.0.12",
+    "parcel": "^2.16.1",
     "regenerator-runtime": "^0.14.1"
   }
 }

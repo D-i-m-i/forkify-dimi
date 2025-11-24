@@ -1,4 +1,5 @@
-import icons from 'url:../../img/icons.svg';
+// import icons from 'url:../../img/icons.svg';
+import icons from '../../img/icons.svg';
 
 export default class View {
   _data;
@@ -26,25 +27,17 @@ export default class View {
   }
 
   update(data) {
-    // if (!data || (Array.isArray(data) && data.length === 0))
-    //   return this.renderError();
-
     this._data = data;
     const newMarkup = this._generateMarkup();
 
     // Creates a virtual DOM (Object) from the HTML markup
     const newDOM = document.createRange().createContextualFragment(newMarkup);
     const newElements = Array.from(newDOM.querySelectorAll('*'));
-    // console.log(newElements);
     const curElements = Array.from(this._parentElement.querySelectorAll('*'));
-    // console.log('CUR', curElements);
-    // console.log('NEW', newElements);
 
     // Looping over both arrays at the same time
     newElements.forEach((newEl, i) => {
       const curEl = curElements[i];
-      // console.log(curEl, newEl.isEqualNode(curEl));
-
       // Updates changed TEXT
       if (
         !newEl.isEqualNode(curEl) &&

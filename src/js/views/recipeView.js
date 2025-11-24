@@ -1,6 +1,7 @@
 import View from './View.js';
 
-import icons from 'url:../../img/icons.svg';
+// import icons from 'url:../../img/icons.svg';
+import icons from '../../img/icons.svg';
 // NOTE: The Fractional package has been reported to cause an error when deployed to a server. Use Fracty instead.
 // import { Fraction } from 'fractional';
 import fracty from 'fracty';
